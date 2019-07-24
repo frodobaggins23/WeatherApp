@@ -1,6 +1,6 @@
 import React from "react";
 
-const ResultItem = ({ item }) => {
+const ForecastItem = ({ item }) => {
   const itemDate = new Date(item.dt * 1000);
   console.log(item);
 
@@ -13,4 +13,4 @@ const ResultItem = ({ item }) => {
   );
 };
 
-export default ResultItem;
+export default ForecastItem;

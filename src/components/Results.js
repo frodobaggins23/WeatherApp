@@ -1,39 +1,11 @@
 import React from "react";
-import ResultItem from "./ResultItem.js";
+import Forecast from "./Forecast.js";
 
 const Results = ({ data, resultsLoaded }) => {
   // console.log(data);
 
   if (resultsLoaded) {
-    const today = data.list.filter(item => {
-      const itemDate = new Date(item.dt * 1000);
-      const today = new Date();
-      return itemDate.getDate() == today.getDate();
-    });
-
-    const tomorrow = data.list.filter(item => {
-      const itemDate = new Date(item.dt * 1000);
-      const today = new Date();
-      return itemDate.getDate() == today.getDate() + 1;
-    });
-
-    console.log(today);
-    console.log(tomorrow);
-
-    return (
-      <div className="results">
-        <h2>{data.city.name}</h2>
-        <h4>{data.city.country}</h4>
-        <h6>Forecast for today</h6>
-        {today.map((item, index) => {
-          return <ResultItem item={item} key={index} />;
-        })}
-        <h6>Forecast for tomorrow</h6>
-        {tomorrow.map((item, index) => {
-          return <ResultItem item={item} key={index} />;
-        })}
-      </div>
-    );
+    return <Forecast data={data} />;
   } else {
     return (
       <div className="results">
