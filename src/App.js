@@ -8,6 +8,7 @@ function App() {
   const [resultsLoaded, setresultsLoaded] = useState(false);
   const [fetchedData, setfetchedData] = useState(null);
 
+console.log(fetchedData)
   return (
     <div className="App">
       <h1>ForecastMe</h1>
