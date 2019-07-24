@@ -1,0 +1,21 @@
+//colors
+$light-blue: #819ba6;
+$dark-blue: #456673;
+$dark-brown: #40371e;
+$sand-brown: #f2bf91;
+$sand-brown-darker: #a68263;
+
+//fonts
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap");
+
+body {
+  font-size: 18px;
+  color: $dark-brown;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.App {
+  padding: 2rem;
+  background-color: rgba($sand-brown, 0.5);
+  border: 1px solid $sand-brown-darker;
+}

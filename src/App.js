@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.scss";
+import Locator from "./components/Locator.js";
+import Results from "./components/Results.js";
 
 function App() {
+  const [api, setapi] = useState(null);
+  const [resultsLoaded, setresultsLoaded] = useState(false);
+  const [fetchedData, setfetchedData] = useState(null);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>ForecastMe</h1>
+      <h4>Reliable weather forecast just one click away...</h4>
+      <Locator
+        fetchHandler={data => {
+          setfetchedData(data);
+          setresultsLoaded(true);
+        }}
+      />
+      <Results data={fetchedData} resultsLoaded={resultsLoaded} />
     </div>
   );
 }
