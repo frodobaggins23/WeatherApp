@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Forecast from "./Forecast.js";
 import CityInfo from "./CityInfo.js";
 import CurrentWeather from "./CurrentWeather.js";
@@ -6,14 +6,27 @@ import UVInfo from "./UVInfo.js";
 
 const Results = ({ data, resultsLoaded, fetchFailed }) => {
   console.log(data);
+  const [cityID, setCityID] = useState("");
+  const [cityCoord, setCityCoord] = useState({
+    lat: "",
+    lon: ""
+  });
+
+  if (resultsLoaded && cityID != data.city.id) {
+    setCityID(data.city.id);
+    setCityCoord({
+      lat: data.city.coord.lat,
+      lon: data.city.coord.lon
+    });
+  }
 
   if (resultsLoaded && !fetchFailed) {
     return (
       <>
-        <CityInfo />
-        <CurrentWeather />
+        <CityInfo city={data.city} />
+        <CurrentWeather id={cityID} />
         <Forecast forecast={data.list} />
-        <UVInfo />
+        <UVInfo coord={cityCoord} />
       </>
     );
   } else if (fetchFailed) {
