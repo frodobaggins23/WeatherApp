@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Locator = ({ fetchHandler }) => {
+const Locator = ({ fetchHandler, setfetchFailed }) => {
   const [params, setparams] = useState({
     q: "",
     units: "metric",
@@ -19,7 +19,8 @@ const Locator = ({ fetchHandler }) => {
           fetchURL.search = new URLSearchParams(params);
           fetch(fetchURL)
             .then(response => response.json())
-            .then(data => fetchHandler(data));
+            .then(data => fetchHandler(data))
+            .catch(() => setfetchFailed(true));
         }}
       >
         <label htmlFor="location">

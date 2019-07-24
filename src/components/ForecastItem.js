@@ -2,7 +2,6 @@ import React from "react";
 
 const ForecastItem = ({ item }) => {
   const itemDate = new Date(item.dt * 1000);
-  console.log(item);
 
   return (
     <ul>

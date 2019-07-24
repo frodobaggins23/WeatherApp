@@ -1,16 +1,14 @@
 import React from "react";
 import ForecastItem from "./ForecastItem.js";
 
-const Forecast = ({ data }) => {
-  // console.log(data);
-
-  const today = data.list.filter(item => {
+const Forecast = ({ forecast }) => {
+  const today = forecast.filter(item => {
     const itemDate = new Date(item.dt * 1000);
     const today = new Date();
     return itemDate.getDate() == today.getDate();
   });
 
-  const tomorrow = data.list.filter(item => {
+  const tomorrow = forecast.filter(item => {
     const itemDate = new Date(item.dt * 1000);
     const today = new Date();
     return itemDate.getDate() == today.getDate() + 1;
@@ -18,8 +16,7 @@ const Forecast = ({ data }) => {
 
   return (
     <div className="results">
-      <h2>{data.city.name}</h2>
-      <h4>{data.city.country}</h4>
+      <h2>Forecast</h2>
       <h6>Forecast for today</h6>
       {today.map((item, index) => {
         return <ForecastItem item={item} key={index} />;

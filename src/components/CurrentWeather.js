@@ -1,7 +1,11 @@
 import React from "react";
 
 const CurrentWeather = () => {
-  return <div />;
+  return (
+    <>
+      <h2>Current Weather</h2>
+    </>
+  );
 };
 
 export default CurrentWeather;

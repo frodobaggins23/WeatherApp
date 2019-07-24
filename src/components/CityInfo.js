@@ -1,7 +1,11 @@
 import React from "react";
 
 const CityInfo = () => {
-  return <div />;
+  return (
+    <>
+      <h2>Location info</h2>
+    </>
+  );
 };
 
 export default CityInfo;

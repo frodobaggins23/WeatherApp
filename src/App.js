@@ -6,7 +6,10 @@ import Results from "./components/Results.js";
 function App() {
   const [api, setapi] = useState(null);
   const [resultsLoaded, setresultsLoaded] = useState(false);
-  const [fetchedData, setfetchedData] = useState(null);
+  const [fetchedData, setfetchedData] = useState("");
+  const [fetchFailed, setfetchFailed] = useState(false);
+
+  !fetchFailed && fetchedData.cod == "404" && setfetchFailed(true);
 
   console.log(fetchedData);
   return (
@@ -17,9 +20,15 @@ function App() {
         fetchHandler={data => {
           setfetchedData(data);
           setresultsLoaded(true);
+          setfetchFailed(false);
         }}
+        setfetchFailed={setfetchFailed}
       />
-      <Results data={fetchedData} resultsLoaded={resultsLoaded} />
+      <Results
+        data={fetchedData}
+        resultsLoaded={resultsLoaded}
+        fetchFailed={fetchFailed}
+      />
     </div>
   );
 }
