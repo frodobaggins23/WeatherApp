@@ -18,4 +18,18 @@ body {
   padding: 2rem;
   background-color: rgba($sand-brown, 0.5);
   border: 1px solid $sand-brown-darker;
+
+  &__logo {
+    position: absolute;
+    top: 0.5rem;
+    left: 2rem;
+    color: white;
+
+    h1 {
+      margin: 1.5rem 0.5rem 0.5rem;
+    }
+    p {
+      margin: 0.5rem;
+    }
+  }
 }
