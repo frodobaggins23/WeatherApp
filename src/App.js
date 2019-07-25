@@ -13,7 +13,9 @@ function App() {
   });
 
   const fetchData = query => {
-    const fetchURL = new URL("http://api.openweathermap.org/data/2.5/forecast");
+    const fetchURL = new URL(
+      "https://api.openweathermap.org/data/2.5/forecast"
+    );
     const params = { ...query, ...units, ...APPID };
 
     fetchURL.search = new URLSearchParams(params);

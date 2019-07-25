@@ -13,7 +13,11 @@ const Forecast = ({ forecast, city }) => {
     "Saturday"
   ];
   const getDayInWeek = day => {
-    return daysInWeek[day];
+    if (day < 7) {
+      return daysInWeek[day];
+    } else {
+      return daysInWeek[0];
+    }
   };
 
   const todayForecast = forecast.filter(item => {
