@@ -29,22 +29,45 @@ function App() {
 
   !fetchFailed && fetchedData.cod == "404" && setfetchFailed(true);
 
-  console.log(fetchedData);
   return (
     <div className="App">
       <div className="App__logo">
-        <h1>ForecastMe</h1>
-        <p>Reliable weather forecast just one click away...</p>
+        <a href="/">
+          <img src={require("./img/forecastMe.svg")} alt="Project logo" />
+        </a>
+        <a href="/">
+          <h1>ForecastMe</h1>
+        </a>
       </div>
-      <h4>Reliable weather forecast just one click away...</h4>
+
       <Locator fetchData={fetchData} />
-      <Results
-        data={fetchedData}
-        units={units}
-        APPID={APPID}
-        resultsLoaded={resultsLoaded}
-        fetchFailed={fetchFailed}
-      />
+
+      <div className="App__resultsContainer">
+        {!fetchFailed && (
+          <Results
+            data={fetchedData}
+            units={units}
+            APPID={APPID}
+            resultsLoaded={resultsLoaded}
+            fetchFailed={fetchFailed}
+          />
+        )}
+        {fetchFailed && (
+          <div className="error-message">
+            <img src={require("./img/error.svg")} alt="" />
+            <h3>Error fetching data. Did not you mispell the city name?</h3>
+          </div>
+        )}
+      </div>
+      <div className="App__footer">
+        <p>created by Jakub Čejchan for dear guys at Inventi</p>
+        <p>
+          this app is using{" "}
+          <a href="https://openweathermap.org/" target="_blanks">
+            openweathermaps
+          </a>
+        </p>
+      </div>
     </div>
   );
 }

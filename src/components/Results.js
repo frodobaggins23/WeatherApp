@@ -24,21 +24,29 @@ const Results = ({ data, units, APPID, resultsLoaded, fetchFailed }) => {
   if (resultsLoaded && !fetchFailed) {
     return (
       <>
-        <CityInfo city={data.city} />
-        <CurrentWeather id={cityID} units={units} APPID={APPID} />
-        <Forecast forecast={data.list} />
-        <UVInfo cityCoord={cityCoord} units={units} APPID={APPID} />
+        <div className="cityInfo">
+          <CityInfo city={data.city} />
+        </div>
+        <div className="container">
+          <div className="container__main">
+            <Forecast forecast={data.list} city={data.city} />
+          </div>
+          <div className="container__secondary">
+            <CurrentWeather id={cityID} units={units} APPID={APPID} />
+            <UVInfo cityCoord={cityCoord} units={units} APPID={APPID} />
+          </div>
+        </div>
       </>
     );
   } else if (fetchFailed) {
     return (
-      <div className="results">
+      <div className="error">
         <h4>There is no data for this city. Try different search query </h4>
       </div>
     );
   } else {
     return (
-      <div className="results">
+      <div className="notLoaded">
         <h4>Select city to see forecast </h4>
       </div>
     );

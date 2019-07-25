@@ -26,9 +26,15 @@ const CurrentWeather = ({ id, units, APPID }) => {
   } else {
     return (
       <>
-        <h2>Current Weather</h2>
-        <p>Temp:{fetchedData.main.temp}</p>
-        <p>Pressure:{fetchedData.main.pressure}</p>
+        <h2>Weather now</h2>
+        <img
+          src={`http://openweathermap.org/img/wn/${
+            fetchedData.weather[0].icon
+          }@2x.png`}
+          alt=""
+        />
+        <p>{Math.round(fetchedData.main.temp)} °C </p>
+        <p>{fetchedData.weather[0].description}</p>
       </>
     );
   }

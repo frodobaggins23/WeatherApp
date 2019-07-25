@@ -6,7 +6,7 @@ const Locator = ({ fetchData }) => {
   });
 
   return (
-    <div className="locator">
+    <div className="App__locator">
       <form
         encType="application/x-www-form-urlencoded;charset=UTF-8"
         onSubmit={e => {
@@ -14,22 +14,23 @@ const Locator = ({ fetchData }) => {
           fetchData(query);
         }}
       >
-        <label htmlFor="location">
-          {" "}
-          Type a city...
-          <input
-            type="text"
-            name="query"
-            id="location"
-            onChange={e => {
-              setquery({
-                q: e.target.value
-              });
-            }}
-          />
-        </label>
-        <button type="submit">Search</button>
+        <input
+          type="text"
+          name="query"
+          id="location"
+          placeholder="type a city..."
+          onChange={e => {
+            setquery({
+              q: e.target.value
+            });
+          }}
+        />
+        <button type="submit">
+          <img src={require("../img/search.svg")} alt="searchIcon" />
+        </button>
       </form>
+
+      <p className="slogan">Reliable weather forecast just one click away...</p>
     </div>
   );
 };

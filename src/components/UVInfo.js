@@ -19,14 +19,14 @@ const UVInfo = ({ cityCoord, units, APPID }) => {
   if (isLoading) {
     return (
       <>
-        <h2>UV Info</h2>
+        <h3>UV Info</h3>
         <p>Data are loading...</p>
       </>
     );
   } else {
     return (
       <>
-        <h2>UV Info</h2>
+        <h3>UV Info</h3>
         <p>UV value: {fetchedData.value}</p>
       </>
     );
