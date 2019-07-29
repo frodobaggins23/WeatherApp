@@ -13,7 +13,7 @@ const GoogleMapToggler = ({ cityCoord }) => {
           showMap ? setshowMap(false) : setshowMap(true);
         }}
       >
-        Show on map
+        {showMap ? "Hide map" : "Show on map"}
       </a>
       {showMap && (
         <GoogleMapContainer
