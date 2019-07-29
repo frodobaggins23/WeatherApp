@@ -4,17 +4,15 @@ This application was created for job interview at Inventi
 
 ## Used technologies
 
-I built this app using Create React App, using ES6 syntax and hooks where possible.
-For styling I used SCSS compilation.
-The app has basic responsiveness implemented
+I built this app using **Create React App**, using ES6 syntax and hooks where possible. Styling was done via SCSS. The app has basic responsiveness implemented (threshold 991px).
 
 ## APIs
 
 this app is connected to following APIs:
 
--weather forecasts: https://openweathermap.org/
--maps: googlemaps
--county flags: http://www.countryflags.io/
+- weather forecasts: https://openweathermap.org/
+- maps: googlemaps
+- county flags: http://www.countryflags.io/
 
 ## Live demo
 
