@@ -37,7 +37,7 @@ const Forecast = ({ forecast, city }) => {
 
   return (
     <div className="main__results">
-      <h2>2-day forecast</h2>
+      <h2>Forecast</h2>
       <p>What the weather will be like for next two days in {city.name}</p>
 
       {todayForecast.length > 0 && todayForecast !== null && (
@@ -48,15 +48,18 @@ const Forecast = ({ forecast, city }) => {
           </h4>
           <table>
             <thead>
-              <th>Time</th>
-              <th>Temperature</th>
-              <th colSpan="2">Weather</th>
-              <th className="hideOnMobile">Pressure</th>
+              <tr>
+                <th>Time</th>
+                <th>Temperature</th>
+                <th colSpan="2">Weather</th>
+                <th className="hideOnMobile">Pressure</th>
+              </tr>
             </thead>
-
-            {todayForecast.map((item, index) => {
-              return <ForecastItem item={item} key={index} />;
-            })}
+            <tbody>
+              {todayForecast.map((item, index) => {
+                return <ForecastItem item={item} key={index} />;
+              })}
+            </tbody>
           </table>
         </>
       )}
@@ -68,15 +71,18 @@ const Forecast = ({ forecast, city }) => {
 
       <table>
         <thead>
-          <th>Time</th>
-          <th>Temperature</th>
-          <th colSpan="2">Weather</th>
-          <th className="hideOnMobile">Pressure</th>
+          <tr>
+            <th>Time</th>
+            <th>Temperature</th>
+            <th colSpan="2">Weather</th>
+            <th className="hideOnMobile">Pressure</th>
+          </tr>
         </thead>
-
-        {day1Forecast.map((item, index) => {
-          return <ForecastItem item={item} key={index} />;
-        })}
+        <tbody>
+          {day1Forecast.map((item, index) => {
+            return <ForecastItem item={item} key={index} />;
+          })}
+        </tbody>
       </table>
 
       <h4>
@@ -85,15 +91,18 @@ const Forecast = ({ forecast, city }) => {
       </h4>
       <table>
         <thead>
-          <th>Time</th>
-          <th>Temperature</th>
-          <th colSpan="2">Weather</th>
-          <th className="hideOnMobile">Pressure</th>
+          <tr>
+            <th>Time</th>
+            <th>Temperature</th>
+            <th colSpan="2">Weather</th>
+            <th className="hideOnMobile">Pressure</th>
+          </tr>
         </thead>
-
-        {day2Forecast.map((item, index) => {
-          return <ForecastItem item={item} key={index} />;
-        })}
+        <tbody>
+          {day2Forecast.map((item, index) => {
+            return <ForecastItem item={item} key={index} />;
+          })}
+        </tbody>
       </table>
     </div>
   );

@@ -6,12 +6,21 @@ $sand-brown: #f2bf91;
 $sand-brown-darker: #a68263;
 
 //fonts
-@import url("https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap");
+
+@import url("https://fonts.googleapis.com/css?family=Inconsolata|Josefin+Sans|Nunito+Sans&display=swap");
 
 body {
   font-size: 18px;
   color: black;
   font-family: "Nunito Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Josefin Sans", sans-serif;
 }
 
 .App {
@@ -70,10 +79,11 @@ body {
         flex: 0 1 70%;
         border: none;
         border-bottom: 1px solid black;
+        padding-bottom: 0.5rem;
         background: transparent;
+        font-family: "Inconsolata", monospace;
         text-align: center;
         font-size: 1.5rem;
-        font-style: italic;
       }
 
       button {
@@ -133,6 +143,9 @@ body {
     }
     .cityMap {
       width: 80%;
+      @media screen and (max-width: 991px) {
+        width: 100%;
+      }
       margin: 1rem auto;
       text-align: center;
 
@@ -153,6 +166,12 @@ body {
       &__main {
         flex: 0 1 75%;
 
+        .main__results {
+          @media screen and (max-width: 991px) {
+            text-align: center;
+          }
+        }
+
         table {
           width: 95%;
           background-color: rgba($dark-blue, 0.7);
@@ -166,6 +185,7 @@ body {
           }
           th {
             background-color: rgba(#fff, 0.7);
+            color: $dark-blue;
           }
 
           tr {

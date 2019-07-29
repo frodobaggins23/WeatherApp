@@ -5,7 +5,9 @@ import Results from "./components/Results.js";
 
 function App() {
   const [resultsLoaded, setresultsLoaded] = useState(false);
-  const [fetchedData, setfetchedData] = useState("");
+  const [fetchedData, setfetchedData] = useState({
+    cod: 200
+  });
   const [fetchFailed, setfetchFailed] = useState(false);
   const [units, setunits] = useState({ units: "metric" });
   const [APPID, setAPPID] = useState({
@@ -29,7 +31,7 @@ function App() {
       .catch(() => setfetchFailed(true));
   };
 
-  !fetchFailed && fetchedData.cod == "404" && setfetchFailed(true);
+  !fetchFailed && fetchedData.cod != "200" && setfetchFailed(true);
 
   return (
     <div className="App">

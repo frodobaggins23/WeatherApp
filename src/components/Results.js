@@ -14,7 +14,7 @@ const Results = ({ data, units, APPID, resultsLoaded, fetchFailed }) => {
     lon: ""
   });
 
-  if (resultsLoaded && cityID.id != data.city.id) {
+  if (resultsLoaded && data.cod == 200 && cityID.id != data.city.id) {
     setCityID({ id: data.city.id });
     setCityCoord({
       lat: data.city.coord.lat,
@@ -52,7 +52,7 @@ const Results = ({ data, units, APPID, resultsLoaded, fetchFailed }) => {
   } else {
     return (
       <div className="notLoaded">
-        <img src={require("../img/weather.svg")} />
+        <img src={require("../img/weather.svg")} alt="weatherIcon" />
         <h4>Select city to see forecast </h4>
       </div>
     );
