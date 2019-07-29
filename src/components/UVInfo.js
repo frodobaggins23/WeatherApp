@@ -5,7 +5,6 @@ const UVInfo = ({ cityCoord, units, APPID }) => {
   const [fetchedData, setfetchedData] = useState("");
 
   useEffect(() => {
-    console.log("*****UV*****");
     const fetchURL = new URL("https://api.openweathermap.org/data/2.5/uvi");
     const params = { ...cityCoord, ...units, ...APPID };
     fetchURL.search = new URLSearchParams(params);

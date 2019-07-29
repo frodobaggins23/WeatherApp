@@ -5,7 +5,6 @@ const CurrentWeather = ({ id, units, APPID }) => {
   const [fetchedData, setfetchedData] = useState("");
 
   useEffect(() => {
-    console.log("*****fetching*****");
     const fetchURL = new URL("https://api.openweathermap.org/data/2.5/weather");
     const params = { ...id, ...units, ...APPID };
     fetchURL.search = new URLSearchParams(params);

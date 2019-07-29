@@ -6,8 +6,6 @@ import UVInfo from "./UVInfo.js";
 import GoogleMapToggler from "./GoogleMapToggler.js";
 
 const Results = ({ data, units, APPID, resultsLoaded, fetchFailed }) => {
-  console.log(data);
-
   const [cityID, setCityID] = useState({ id: "" });
   const [cityCoord, setCityCoord] = useState({
     lat: "",
