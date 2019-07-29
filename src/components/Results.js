@@ -3,6 +3,7 @@ import Forecast from "./Forecast.js";
 import CityInfo from "./CityInfo.js";
 import CurrentWeather from "./CurrentWeather.js";
 import UVInfo from "./UVInfo.js";
+import GoogleMapContainer from "./GoogleMapContainer.js";
 
 const Results = ({ data, units, APPID, resultsLoaded, fetchFailed }) => {
   console.log(data);
@@ -27,6 +28,18 @@ const Results = ({ data, units, APPID, resultsLoaded, fetchFailed }) => {
         <div className="cityInfo">
           <CityInfo city={data.city} />
         </div>
+        <div className="cityMap">
+          <GoogleMapContainer
+            cityCoord={cityCoord}
+            googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${
+              process.env.REACT_APP_GOOGLE_KEY
+            }`}
+            loadingElement={<div style={{ width: `100%`, height: `100%` }} />}
+            containerElement={<div style={{ width: `100%`, height: `100%` }} />}
+            mapElement={<div style={{ width: `100%`, height: `100%` }} />}
+          />
+        </div>
+
         <div className="container">
           <div className="container__main">
             <Forecast forecast={data.list} city={data.city} />
