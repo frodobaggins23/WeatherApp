@@ -3,7 +3,7 @@ import Forecast from "./Forecast.js";
 import CityInfo from "./CityInfo.js";
 import CurrentWeather from "./CurrentWeather.js";
 import UVInfo from "./UVInfo.js";
-import GoogleMapContainer from "./GoogleMapContainer.js";
+import GoogleMapToggler from "./GoogleMapToggler.js";
 
 const Results = ({ data, units, APPID, resultsLoaded, fetchFailed }) => {
   console.log(data);
@@ -29,15 +29,7 @@ const Results = ({ data, units, APPID, resultsLoaded, fetchFailed }) => {
           <CityInfo city={data.city} />
         </div>
         <div className="cityMap">
-          <GoogleMapContainer
-            cityCoord={cityCoord}
-            googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${
-              process.env.REACT_APP_GOOGLE_KEY
-            }`}
-            loadingElement={<div style={{ width: `100%`, height: `100%` }} />}
-            containerElement={<div style={{ width: `100%`, height: `100%` }} />}
-            mapElement={<div style={{ width: `100%`, height: `100%` }} />}
-          />
+          <GoogleMapToggler cityCoord={cityCoord} />
         </div>
 
         <div className="container">
@@ -60,6 +52,7 @@ const Results = ({ data, units, APPID, resultsLoaded, fetchFailed }) => {
   } else {
     return (
       <div className="notLoaded">
+        <img src={require("../img/weather.svg")} />
         <h4>Select city to see forecast </h4>
       </div>
     );
