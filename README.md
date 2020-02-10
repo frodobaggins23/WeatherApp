@@ -1,6 +1,5 @@
 # Weather App demo application
 
-This application was created for job interview at Inventi
 
 ## Used technologies
 
